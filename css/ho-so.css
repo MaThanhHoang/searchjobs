@@ -1,0 +1,78 @@
+body{
+	height: 100%;
+	width: 100%;	
+	background-color: #ccc;
+}
+#menu_top {
+	background-color:#f3f3f3 ;
+	height: 70px;
+	width: 90%;
+	margin: 0 auto;
+	border-bottom: 2px solid #ccc;
+	padding: 0px 30px;
+}
+
+#menu_top .navbar-collapse {
+	margin-left: 20px;
+	font-size: 20px; 
+}
+
+#menu_top #navbar-home  a:hover {
+	color: #2196f3;
+	background-color: #f3f3f3;
+}
+#menu_top .navbar-nav  img {
+	width: 50px;
+	height: 40px;
+	float: left;
+	border: none;
+}
+#menu_top .navbar-nav .dropdown{
+	float: left;
+}
+.container{
+	margin-top: 50px;
+}
+.container .btn{
+	background-color: #fd7e14;
+	width: 70%;
+	height: 60px;
+	font-size: 30px;	
+	margin-left: 170px;
+}
+.container .form1{
+	width: 70%;
+	max-height: 1000px;
+	margin: 30px auto;
+	padding: 10px 50px;
+	background-color: #f5eeee;
+	position:  cover;
+}
+
+.container .form1 .group-input{
+	margin: 0 auto;
+	width: 60%;
+}
+.container .form1 .group-input h6{
+	
+}
+.container .form1 .group-input input{
+	padding-left: 5px;
+	width: 350px ;
+	height: 40px;
+	border: 0.2px solid #ccc;
+}
+.container .form1 .group-input .form-control{
+	padding-left: 5px;
+	width: 350px ;
+	height: 40px;
+	color: #000;
+	background-color: #fff;
+}
+.container .form1 .group-input textarea{
+	color: #000;
+}
+.container .form1 .group-required {
+	border: 1px solid;
+	background-color: #fff;
+}

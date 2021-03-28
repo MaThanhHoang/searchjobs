@@ -1,0 +1,152 @@
+body{
+	height: 100%;
+	width: 100%;	
+	background-color: #ccc;
+}
+#menu_top {
+	background-color:#077db8 ;
+	height: 60px;
+	width: 90%;
+	margin: 0 auto;
+	border-bottom: 2px solid #ccc;
+	padding: 0px 	30px;
+}
+#menu_top ul li a span {
+	padding: 0 15px 0 15px;
+	border-right: 1px solid #ccc;
+}
+
+
+#menu_top .navbar-collapse {
+	margin-left: 20px;
+	font-size: 20px; 
+}
+
+
+#menu_top a:hover {
+	background-color: #d22d65;
+
+} 
+
+.container{
+	width: 100%;
+}
+.container .panner{
+	height: 400px;
+	width: 100%;
+	padding:50px 100px	; 
+	margin: 10px auto; 
+	background-image: url(Work.jpg);
+	background-size: cover;
+}
+.container .panner .background-input{
+	margin: 0 auto;
+	padding: 30px 30px ;
+	width: 100%;
+	height: 200px;
+	background-color: #67645e99;
+	background-position: center;
+	background: cover;
+	border: 1px solid gray;
+	border-radius: 20px; 
+
+}
+
+.container .panner .background-input p{
+	text-align: center;
+	color: #fff;
+}
+
+
+.container .panner .btn{
+	margin:30px 45px;
+	width: 200px;	
+	height: 50px;
+
+}
+.container .panner .background-input .input-group {
+	margin: 25px auto;
+	width: 700px;
+	height: 60px;
+	background-position: center;
+	background: cover;
+
+}
+
+.container .panner .background-input .input-group input{
+	padding-left: 50px;
+	margin: 0 auto; 
+	width: 400px;
+	border: 2px solid gray;
+	border-radius: 10px;
+}
+.container .panner .background-input .input-group select{
+	padding-left: 15px;
+	margin-left: 450px;
+	width: 120px;
+	margin: 0 auto;
+	border: 2px solid gray;
+	border-radius: 10px;
+}
+
+.container .panner .background-input .input-group button{
+	width: 120px;
+	height: 60px;
+	margin: 0 auto;
+	border: 2px solid gray;
+	border-radius: 9px;
+	float: right;
+	background-color: #d22d65;
+}
+.container .background-input .input-group .btn-second:hover{
+	background-color: #680f94;
+
+}
+.container h1{
+	text-align: center;
+	margin: 50px;
+}
+.container .show-work{
+	background-color: #ccc3;	
+	padding-top: 5px; 
+	width: 100%;
+	max-height: 800px;
+}
+.container .show-work .work{
+	float: left;
+	background-color: #ccc3;
+	margin: 25px;
+	padding: 10px 15px;
+	width: 500px;
+	height: 100px;
+	border-bottom: 2px solid #ccc;
+}
+.container .show-work .work img{
+	width: 70px;
+	height: 70px;
+	padding-top: 5px;
+	float: left;
+}
+
+.container .show-work .work .info{
+	margin: 5px; 
+	float: left;
+	width: 380px;
+	background-color: ;
+}
+.container .show-work .work .info a{
+	text-decoration: none;	
+}
+.container .show-work .work .info a p{
+	color: #000;
+}
+.footer{
+	width: 100%;
+}
+
+.footer .text-uppercase{
+	font-size: 25px;
+}
+.footer .col-lg-3{ 
+	margin-left: 250px;
+}
