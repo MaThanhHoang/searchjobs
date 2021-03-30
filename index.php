@@ -13,7 +13,7 @@
             <a class="nav-link active" aria-current="page" href="login.php"><span>Đăng nhập</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">
+            <a class="nav-link active" href="register.php" tabindex="-1" aria-disabled="true">
               Đăng ký
             </a>
           </li>
