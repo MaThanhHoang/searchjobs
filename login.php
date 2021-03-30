@@ -1,4 +1,31 @@
 ﻿<?php include 'inc/header.php' ?>
+<meta charset ="utf8">
+<?php
+	$taikhoan = $_POST['email'];
+	$matkhau = $_POST['password'];
+	//
+	$kn = mysqli_connect("localhost","root","","Timkiemvieclam3") or die("Không thể kết nối");
+	mysqli_select_db($kn, "Timkiemvieclam3");
+	//
+	mysqli_query($kn,"SET NAMES 'utf8'");
+	//
+	$caulenh ="SELECT * FROM TAIKHOAN WHERE EMAIL = '".$taikhoan."'";
+	//
+	$kq = mysqli_query($kn,$caulenh);
+	//
+	if($dong = mysqli_fetch_array($kq))
+	{
+		if($dong['MATKHAU']==$matkhau)
+		{
+			header('Location: http://localhost:81/searchjobs/index.php/');
+		
+		}
+		else
+			echo"Sai password";
+	}
+	else
+		echo"Tài khoản chưa tồn tại";
+?>
 
 <head>
 	<link href="css/register.css" rel="stylesheet" type="text/css" media="all" />
