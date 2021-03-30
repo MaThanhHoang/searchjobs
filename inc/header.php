@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <title>TUYỂN DỤNG ONLINE</title>
+    <link rel="stylesheet" type="text/css" href="css/login_web_viec_lam.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script type="text/javascript" src="js.js"></script>
     <meta charset="UTF-8">
