@@ -43,5 +43,7 @@
     <button type="button" class="btn btn-primary btn-second" style="background-color: #d22d65">Đăng tin tuyển dụng</button>
   </div>
   <h1> Việc làm tuyển gấp</h1>
+  
+  <form></form>
 
   <?php include 'inc/footer.php'; ?>
