@@ -1,31 +1,4 @@
 ﻿<?php include 'inc/header.php' ?>
-<meta charset ="utf8">
-<?php
-	$taikhoan = $_POST['email'];
-	$matkhau = $_POST['password'];
-	//
-	$kn = mysqli_connect("localhost","root","","tai_khoan") or die("Không thể kết nối");
-	mysqli_select_db($kn, "tai_khoan");
-	//
-	mysqli_query($kn,"SET NAMES 'utf8'");
-	//
-	$caulenh ="SELECT * FROM user WHERE username = '".$taikhoan."'";
-	//
-	$kq = mysqli_query($kn,$caulenh);
-	//
-	if($dong = mysqli_fetch_array($kq))
-	{
-		if($dong['password']==$matkhau)
-		{
-			header('Location: http://localhost:81/searchjobs/');
-		}
-		else
-			echo"Sai password";
-	}
-	else
-		echo"Tài khoản chưa tồn tại";
-?>
-
 <head>
 	<link href="css/register.css" rel="stylesheet" type="text/css" media="all" />
 </head>
@@ -55,3 +28,29 @@
 <!-- xu li code dang nhap -->
 
 <?php include 'inc/footer.php'; ?>
+<meta charset ="utf8">
+<?php
+	$taikhoan = $_POST['email'];
+	$matkhau = $_POST['password'];
+	//
+	$kn = mysqli_connect("localhost","root","","tai_khoan") or die("Không thể kết nối");
+	mysqli_select_db($kn, "tai_khoan");
+	//
+	mysqli_query($kn,"SET NAMES 'utf8'");
+	//
+	$caulenh ="SELECT * FROM user WHERE username = '".$taikhoan."'";
+	//
+	$kq = mysqli_query($kn,$caulenh);
+	//
+	if($dong = mysqli_fetch_array($kq))
+	{
+		if($dong['password']==$matkhau)
+		{
+			header('Location: http://localhost:81/searchjobs/');
+		}
+		else
+			echo"Sai password";
+	}
+	else
+		echo"Tài khoản chưa tồn tại";
+?>
