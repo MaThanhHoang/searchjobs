@@ -4,21 +4,20 @@
 	$taikhoan = $_POST['email'];
 	$matkhau = $_POST['password'];
 	//
-	$kn = mysqli_connect("localhost","root","","Timkiemvieclam3") or die("Không thể kết nối");
-	mysqli_select_db($kn, "Timkiemvieclam3");
+	$kn = mysqli_connect("localhost","root","","tai_khoan") or die("Không thể kết nối");
+	mysqli_select_db($kn, "tai_khoan");
 	//
 	mysqli_query($kn,"SET NAMES 'utf8'");
 	//
-	$caulenh ="SELECT * FROM TAIKHOAN WHERE EMAIL = '".$taikhoan."'";
+	$caulenh ="SELECT * FROM user WHERE username = '".$taikhoan."'";
 	//
 	$kq = mysqli_query($kn,$caulenh);
 	//
 	if($dong = mysqli_fetch_array($kq))
 	{
-		if($dong['MATKHAU']==$matkhau)
+		if($dong['password']==$matkhau)
 		{
-			header('Location: http://localhost:81/searchjobs/index.php/');
-		
+			header('Location: http://localhost:81/searchjobs/');
 		}
 		else
 			echo"Sai password";
