@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$database = "database";
+$servername = "mysql-26002-0.cloudclusters.net";
+$username = "hoang";
+$password = "Hoang2506";
+$database = "searchjobs";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
