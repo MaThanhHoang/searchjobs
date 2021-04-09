@@ -1,12 +1,13 @@
 <?php include 'inc/header.php'; ?>
 <?php include 'config/database.php'; ?>
+
+</style>
 <form action="" method="post" name="main-form">
 	<div id="menu_top">
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<div class=" navbar-collapse">
 				<ul class="navbar-nav ">
-					<li class="nav-item active "><a
-						class="nav-link active navbar-brand" href="index.html">Home</a></li>
+					<li class="nav-item active "><aclass="nav-link active navbar-brand" href="index.html">Home</a></li>
 				</ul>
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active" aria-current="page"
@@ -45,21 +46,47 @@
 		<h1>Việc làm tuyển gấp</h1>
 		<br> <br>
 		<section>
+             <?php
+             
+             if (@$_POST['timkiemtheotext'] == "") {
+                 $query = mysqli_query($conn, "select COUNT(*) FROM `congviec` ");
+                 if ($row = mysqli_fetch_assoc($query)) {
+                     echo $row['COUNT(*)'] . " " . "việc làm";
+                 }
+             ?>
 			<article id="slvl">
-    <?php
-    
-    if (@$_POST['timkiemtheotext'] == "") {
-        $query = mysqli_query($conn, "select COUNT(*) FROM `congviec` ");
-        if ($row = mysqli_fetch_assoc($query)) {
-            echo $row['COUNT(*)'] . " " . "việc làm";
-        }
-    ?>
+<!--<table style="width:100%; height:250px; color:white; font-size:15px;color:black;     ">
+		<tr style=" background:#65bc7b;border-bottom:1px solid black">
+		
+		<th class="md">Yêu cầu công việc</th>
+		<th class="ch"> Tên công ty</th>
+		<th>Lương</th>
+		<th>Vùng miền</th>
+		<th>Địa chỉ</th>
+		<th>Ngày đăng</th>
+		<th>Chế độ đãi ngộ</th>
+            <th>Mô tả công việc</th>
+		
+		</tr>
+		
+   <table style="width:100%; height:250px; color:white; font-size:15px;color:black;   >   ">
+		<tr style=" background:#65bc7b;border-bottom:1px solid black">
+		
+		<th class="md">Họ và tên</th>
+		<th class="ch"> Hình thức làm việc</th>
+		<th>Ngành nghề</th>
+		<th>Địa chỉ</th>
+		<th>Số năm kinh nghiệm</th>
+		<th>Bằng cấp</th>
+		<th>Tin học</th>
+            <th>Ngoại ngữ</th>
+		
+		</tr>-->
     		
     	
    
     
-    </article>
-			<article>
+  
  
         <?php
         
@@ -91,104 +118,156 @@
         
         elseif (@$_POST['timkiem'] == "search" && @$_POST['location'] == "whole" && @$_POST['object'] == "who") {
             $query = mysqli_query($conn, "select * FROM `hosocanhan`");
+            echo '
+	
+   <table style="width:100%; height:250px; color:white; font-size:15px;color:black;text-align:center; ">
+		<tr style=" background:#65bc7b;border-bottom:1px solid black">
+		
+		<th class="md">Họ và tên</th>
+		<th class="ch"> Hình thức làm việc</th>
+		<th>Ngành nghề</th>
+		<th>Địa chỉ</th>
+		<th>Số năm kinh nghiệm</th>
+		<th>Bằng cấp</th>
+		<th>Tin học</th>
+            <th>Ngoại ngữ1</th>
+		
+		</tr>';
             while ($row = mysqli_fetch_assoc($query)) {
                 echo '
-<table id="wrap">
+	
+
 						    
-<tr class="left">
-        <th class="yeucaucongviec"><a href="#">' . $row['HOVATEN'] . '</a></th>
-		<th class="tencongty"><a href="#">Hình thức: ' . $row['HINHTHUCLAMVIEC'] . '</a></th>
-        <th class="luong"><a href="#">Ngành Nghề: ' . $row['NGANHNGHE'] . '</a></th>
-		<th class="vungmien"><a href="#">🌍 Vùng Miền: ' . $row['DIACHI'] . '</a></th>
-        <th class="diachi"><a href="#">Số năm kinh nghiệm: ' . $row['SONAMKINHNGIEM'] . '</a></th>
-</tr>
-<tr class="right">
+<tr style=";border-bottom:1px solid black">
+        <th class="yeucaucongviec">' . $row['HOVATEN'] . '</th>
+		<th class="tencongty"> ' . $row['HINHTHUCLAMVIEC'] . '</th>
+        <th class="luong">' . $row['NGANHNGHE'] . '</th>
+		<th class="vungmien"> ' . $row['DIACHI'] . '</th>
+        <th class="diachi"> ' . $row['SONAMKINHNGIEM'] . '</th>
+
     
-        <th class="ngaydang"><a href="#">Bằng cấp :' . $row['BANGCAP'] . '</a></th>
-		<th class="chedodaingo"><a href="#">Tin học: ' . $row['TINHOC'] . '</a></th>
-		<th class="motacongviec"><a href="#">Ngoại ngữ :' . $row['NGOAINGU'] . '</a></th>
+        <th class="ngaydang">' . $row['BANGCAP'] . '</th>
+		<th class="chedodaingo">' . $row['TINHOC'] . '</th>
+		<th class="motacongviec">' . $row['NGOAINGU'] . '</th>
 </tr>
             
             
-		</table>
+		
 ';
             }
         }        // End tìm người ứng tuyển
         
         elseif (@$_POST['timkiem'] == "search" && @$_POST['location'] == "whole" && @$_POST['object'] == "which" || @$_POST['location'] == "") {
             $query = mysqli_query($conn, "select * FROM `congviec`");
+			  echo '
+<table style="width:100%; height:250px; color:white; font-size:15px;color:black;text-align:center;">
+		<tr style=" background:#65bc7b;border-bottom:1px solid black">
+		
+		<th class="md">Yêu cầu công việc</th>
+		<th class="ch"> Tên công ty</th>
+		<th>Lương</th>
+		<th>Vùng miền</th>
+		<th>Địa chỉ</th>
+		<th>Ngày đăng</th>
+		<th>Chế độ đãi ngộ</th>
+            <th>Mô tả công việc</th>
+		
+		</tr>';
             while ($row = mysqli_fetch_assoc($query)) {
                 echo '
-<table id="wrap">
-						    
-<tr class="left">
-        <th class="yeucaucongviec"><a href="#">' . $row['YEUCAUCONGVIEC'] . '</a></th>
-		<th class="tencongty"><a href="#">' . $row['TENCONGTY'] . '</a></th>
-        <th class="luong"><a href="#">$ Lương: ' . $row['Luong'] . '</a></th>
-		<th class="vungmien"><a href="#">🌍 Vùng Miền: ' . $row['VUNGMIEN'] . '</a></th>
-        <th class="diachi"><a href="#">🏬 Địa chỉ: ' . $row['DIACHI'] . '</a></th>
+
+
+<tr style="border-bottom:1px solid black">
+        <th class="yeucaucongviec">' . $row['YEUCAUCONGVIEC'] . '</th>
+		<th class="tencongty">' . $row['TENCONGTY'] . '</th>  
+        <th class="luong"> ' . $row['Luong'] . '</th>
+		<th class="vungmien">' . $row['VUNGMIEN'] . '</th>
+        <th class="diachi">' . $row['DIACHI'] . '</th>
+
+        <th class="ngaydang">' . $row['NGAYDANG'] . '</th>
+		<th class="chedodaingo">' . $row['CHEDODAINGO'] . '</th>
+		<th class="motacongviec">' . $row['MOTACONGVIEC'] . '</th>
 </tr>
-<tr class="right">
-    
-        <th class="ngaydang"><a href="#">🕑 Ngày đăng :' . $row['NGAYDANG'] . '</a></th>
-		<th class="chedodaingo"><a href="#">Đãi ngộ: ' . $row['CHEDODAINGO'] . '</a></th>
-		<th class="motacongviec"><a href="#">Mô tả :' . $row['MOTACONGVIEC'] . '</a></th>
-</tr>
-            
-            
-		</table>
+
+
+	
 ';
             }
         }
         
         if ($viec == 1) {
             $query = mysqli_query($conn, 'SELECT * FROM `congviec` WHERE `VUNGMIEN`="' . $mien . '"');
+            echo '
+<table style="width:100%; height:150px; color:white; font-size:15px;color:black;   >   ">
+		<tr style=" background:#65bc7b;border-bottom:1px solid black">
+		
+		<th class="md">Yêu cầu công việc</th>
+		<th class="ch"> Tên công ty</th>
+		<th>Lương</th>
+		<th>Vùng miền</th>
+		<th>Địa chỉ</th>
+		<th>Ngày đăng</th>
+		<th>Chế độ đãi ngộ</th>
+            <th>Mô tả công việc</th>
+		
+		</tr>';
             while ($row = mysqli_fetch_assoc($query)) {
                 echo '
-<table id="wrap">
-   	
-<tr class="left">
-        <th class="yeucaucongviec"><a href="#">' . $row['YEUCAUCONGVIEC'] . '</a></th>
-		<th class="tencongty"><a href="#">' . $row['TENCONGTY'] . '</a></th>  
-        <th class="luong"><a href="#">$ Lương: ' . $row['Luong'] . '</a></th>
-		<th class="vungmien"><a href="#">🌍 Vùng Miền: ' . $row['VUNGMIEN'] . '</a></th>
-        <th class="diachi"><a href="#">🏬 Địa chỉ: ' . $row['DIACHI'] . '</a></th>
-</tr>
-<tr class="right">
+<tr style=" border-bottom:1px solid black">
+        <th class="yeucaucongviec">' . $row['YEUCAUCONGVIEC'] . '</th>
+		<th class="tencongty">' . $row['TENCONGTY'] . '</th>  
+        <th class="luong"> ' . $row['Luong'] . '</th>
+		<th class="vungmien">' . $row['VUNGMIEN'] . '</a></th>
+        <th class="diachi">' . $row['DIACHI'] . '</th>
 
-        <th class="ngaydang"><a href="#">🕑 Ngày đăng :' . $row['NGAYDANG'] . '</a></th>
-		<th class="chedodaingo"><a href="#">Đãi ngộ: ' . $row['CHEDODAINGO'] . '</a></th>
-		<th class="motacongviec"><a href="#">Mô tả :' . $row['MOTACONGVIEC'] . '</a></th>
+        <th class="ngaydang">' . $row['NGAYDANG'] . '</th>
+		<th class="chedodaingo">' . $row['CHEDODAINGO'] . '</th>
+		<th class="motacongviec">' . $row['MOTACONGVIEC'] . '</th>
 </tr>
 
 
-		</table>
+		
 ';
             }
         }
         
         if ($nguoi == 1) {
             $query = mysqli_query($conn, 'SELECT * FROM `hosocanhan` WHERE `DIACHI`="' . $mien . '"');
+			    echo '
+
+						    	
+   <table style="width:100%; height:150px; color:white; font-size:15px;color:black;   text-align:center;  ">
+		<tr style=" background:#65bc7b;border-bottom:1px solid black">
+		
+		<th class="md">Họ và tên</th>
+		<th class="ch"> Hình thức làm việc</th>
+		<th>Ngành nghề</th>
+		<th>Địa chỉ</th>
+		<th>Số năm kinh nghiệm</th>
+		<th>Bằng cấp</th>
+		<th>Tin học</th>
+            <th>Ngoại ngữ</th>
+		
+		</tr>';
             while ($row = mysqli_fetch_assoc($query)) {
                 echo '
-<table id="wrap">
-						    
-<tr class="left">
-        <th class="yeucaucongviec"><a href="#">' . $row['HOVATEN'] . '</a></th>
-		<th class="tencongty"><a href="#">Hình thức: ' . $row['HINHTHUCLAMVIEC'] . '</a></th>
-        <th class="luong"><a href="#">Ngành Nghề: ' . $row['NGANHNGHE'] . '</a></th>
-		<th class="vungmien"><a href="#">🌍 Vùng Miền: ' . $row['DIACHI'] . '</a></th>
-        <th class="diachi"><a href="#">Số năm kinh nghiệm: ' . $row['SONAMKINHNGIEM'] . '</a></th>
-</tr>
-<tr class="right">
+
+	
+<tr style="border-bottom:1px solid black">
+        <th class="yeucaucongviec">' . $row['HOVATEN'] . '</th>
+		<th class="tencongty"> ' . $row['HINHTHUCLAMVIEC'] . '</th>
+        <th class="luong">' . $row['NGANHNGHE'] . '</th>
+		<th class="vungmien"> ' . $row['DIACHI'] . '</th>
+        <th class="diachi"> ' . $row['SONAMKINHNGIEM'] . '</th>
+
     
-        <th class="ngaydang"><a href="#">Bằng cấp :' . $row['BANGCAP'] . '</a></th>
-		<th class="chedodaingo"><a href="#">Tin học: ' . $row['TINHOC'] . '</a></th>
-		<th class="motacongviec"><a href="#">Ngoại ngữ :' . $row['NGOAINGU'] . '</a></th>
+        <th class="ngaydang">' . $row['BANGCAP'] . '</th>
+		<th class="chedodaingo"> ' . $row['TINHOC'] . '</th>
+		<th class="motacongviec">' . $row['NGOAINGU'] . '</th>
 </tr>
             
             
-		</table>
+	
 ';
             }
         }
@@ -211,27 +290,40 @@
 
         if ($sl > 0) {
             $query = mysqli_query($conn, 'SELECT *, COUNT(*) FROM `congviec` WHERE `TENCONGTY` LIKE "%' . @$_POST['timkiemtheotext'] . '%" OR `YEUCAUCONGVIEC` LIKE "%' . @$_POST['timkiemtheotext'] . '%"OR `DIACHI` LIKE "%' . @$_POST['timkiemtheotext'] . '%"OR `VUNGMIEN` LIKE "%' . @$_POST['timkiemtheotext'] . '%"OR `MOTACONGVIEC` LIKE "%' . @$_POST['timkiemtheotext'] . '%"');
-            while ($row = mysqli_fetch_assoc($query)) {
+            echo '
+
+						    	
+   <table style="width:100%; height:150px; color:white; font-size:15px;color:black;   text-align:center; ">
+		<tr style=" background:#65bc7b;border-bottom:1px solid black">
+		
+		<th class="md">Họ và tên</th>
+		<th class="ch"> Hình thức làm việc</th>
+		<th>Ngành nghề</th>
+		<th>Địa chỉ</th>
+		<th>Số năm kinh nghiệm</th>
+		<th>Bằng cấp</th>
+		<th>Tin học</th>
+            <th>Ngoại ngữ</th>
+		
+		</tr>';
+			while ($row = mysqli_fetch_assoc($query)) {
                 
                 echo '
-<table id="wrap">
-   	
-<tr class="left">
-        <th class="yeucaucongviec"><a href="#">' . $row['YEUCAUCONGVIEC'] . '</a></th>
-		<th class="tencongty"><a href="#">' . $row['TENCONGTY'] . '</a></th>  
-        <th class="luong"><a href="#">$ Lương: ' . $row['Luong'] . '</a></th>
-		<th class="vungmien"><a href="#">🌍 Vùng Miền: ' . $row['VUNGMIEN'] . '</a></th>
-        <th class="diachi"><a href="#">🏬 Địa chỉ: ' . $row['DIACHI'] . '</a></th>
-</tr>
-<tr class="right">
 
-        <th class="ngaydang"><a href="#">🕑 Ngày đăng :' . $row['NGAYDANG'] . '</a></th>
-		<th class="chedodaingo"><a href="#">Đãi ngộ: ' . $row['CHEDODAINGO'] . '</a></th>
-		<th class="motacongviec"><a href="#">Mô tả :' . $row['MOTACONGVIEC'] . '</a></th>
+<tr style=" border-bottom:1px solid black">
+        <th class="yeucaucongviec">' . $row['YEUCAUCONGVIEC'] . '</th>
+		<th class="tencongty"' . $row['TENCONGTY'] . '</th>  
+        <th class="luong"> ' . $row['Luong'] . '</th>
+		<th class="vungmien">' . $row['VUNGMIEN'] . '</th>
+        <th class="diachi">' . $row['DIACHI'] . '</th>
+
+        <th class="ngaydang">' . $row['NGAYDANG'] . '</th>
+		<th class="chedodaingo">' . $row['CHEDODAINGO'] . '</th>
+		<th class="motacongviec">' . $row['MOTACONGVIEC'] . '</th>
 </tr>
 
 
-		</table>
+	
 ';
             }
         }
@@ -239,7 +331,7 @@
     
     
         ?>
-        
+        	</table>
   	 </article>
           
 
