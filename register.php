@@ -12,43 +12,48 @@
 				<input class="text email" type="email" name="email" placeholder="Email" required="">
 				<input class="text" type="password" name="password" placeholder="Password" required="">
 				<input class="text w3lpass" type="password" name="confirmpassword" placeholder="Confirm Password" required="">
-				<div class="wthree-text">
-					
-					<div class="clear"> </div>
-				</div>
-				<input type="submit" value="ĐĂNG KÍ">
+				<input type="submit" NAME="submit" value="ĐĂNG KÍ">
+<meta charset ="utf8">
+<?php
+	//connect database
+	$kn = mysqli_connect("localhost","root","","a") or die("Không thể kết nối");
+	mysqli_select_db($kn, "a");
+	mysqli_query($kn,"SET NAMES 'utf8'");
+	//post
+	$username = @$_POST['Username'];
+	$email = @$_POST['email'];
+	$password = @$_POST['password'];
+	$confirmoassword = @$_POST['confirmpassword'];
+	//id
+	$sql = "SELECT IDTK FROM taikhoan WHERE IDTK != 0";
+	$old = mysqli_query($kn,$sql);
+	$cou = mysqli_num_rows($old);
+	$id = $cou + 1;
+	//insert
+	if(isset($_POST['submit']) && $password == $confirmoassword){
+	//check email
+		$cod = "SELECT * FROM taikhoan WHERE EMAIl = '$email'";
+		$pro = mysqli_query($kn,$cod);
+		$rows = mysqli_num_rows($pro);
+		if($rows==0){
+			$insert = "INSERT INTO taikhoan(IDTK,TAIKHOAN,EMAIL,MATKHAU) VALUES ('$id','$username','$email','$password')";
+			mysqli_query($kn,$insert);
+			echo"Đăng ký thành công!";
+		}
+		else{
+			if(isset($_POST['submit']) && $rows !=0){
+				echo"Email đã đăng ký";
+			}
+		}
+	}
+	else{
+		if(isset($_POST['submit']) && $password != $confirmoassword)
+			echo"Mật khẩu không khớp!";
+	}
+?>
 			</form>
 			<p>Bạn đã có tài khoản?<a href="login.php"> Đăng nhập</a></p>
 		</div>
 	</div>
 </div>
-
 <?php include 'inc/footer.php'; ?>
-<?php
-	$kn = mysqli_connect("localhost","root","","a") or die("Không thể kết nối");
-	mysqli_select_db($kn, "a");
-	//
-	mysqli_query($kn,"SET NAMES 'utf8'");
-	if(isset($_POST['submit']) && $_POST['Username'] !='' && $_POST['Email'] !='' && $_POST['Password'] !='' && $_POST['confirmpassword'] !=''){
-		$username = $_POST['Username'];
-		$email = $_POST['Email'];
-		$password = $_POST['Password'];
-		$confirmpassword = $_POST['confirmpassword'];
-		if($password != $confirmpassword){
-			echo "Nhập lại mật khẩu sai!";
-		}
-		$sql = "SELECT * FROM taikhoan WHERE TAIKHOAN = '$username'";
-		$old = mysqli_query($kn,$sql);
-		if(mysqli_num_rows($old) > 0){
-			echo "Tài khoản đã tồn tại!";
-		}
-		else{
-			$insert = "INSERT INTO taikhoan(TAIKHOAN,EMAIL,MATKHAU) VALUES ('$username','$email','$password')";
-			mysqli_query($kn,$insert);
-			header('Location: http://localhost:81/searchjobs/');
-		}
-	}
-	else{
-		header('Location: http://localhost:81/searchjobs/register.php');
-	}
-?>
