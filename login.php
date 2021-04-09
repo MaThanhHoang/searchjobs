@@ -24,9 +24,6 @@
 		</div>
 	</div>
 </div>
-
-<!-- xu li code dang nhap -->
-
 <?php include 'inc/footer.php'; ?>
 <meta charset ="utf8">
 <?php
