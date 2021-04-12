@@ -4,77 +4,73 @@
 <head>
 	<link href="css/createCV.css" rel="stylesheet" type="text/css" media="all" />
 </head>
-
+|<form action="themcv.php" method="post">
 <div class="container">
     <div class="form">
         <h2>Hồ sơ cá nhân</h2>
         <div class="group-input">
             <h6>Họ và tên:</h6>
-            <input class="input" type="text"  placeholder="Nhập họ tên" required><p>
-
-            <h6>Giới tính:</h6>
+            <input class="input" type="text"  placeholder="Nhập họ tên" name="txthovaten" ><p>
+ 
+            <h6>Chọn địa chỉ đi bro:</h6>
             <div class="form-group">
-            <select id="inputState" class="form-control">
-                <option selected>Chon gioi tinh</option>
-                <option>Nam</option>
-                <option>Nu</option>
+            <select id="inputState" class="form-control" name="txtdiachi">
+                <option value="Miền Bắc">Miền Bắc</option>
+                <option value="Miền Trung">Miền Trung</option>
+                <option value="Miền Nam">Miền Nam</option>
             </select>
             </div><br>
 
-            <h6>Ngày sinh:</h6>
-            <div class="form-group row">
-            <div class="col-10">
-                <input class="form-control" type="date" value="2020-12-12" id="example-date-input">
-            </div>
-            </div>	<br>
-
-            <h6>Nhập địa chỉ:</h6>
-            <div class="form-group">
-            <textarea cols="55" rows="3" placeholder="Nhap địa chỉ"></textarea>
-            </div><br>
-
-            <h6>Email:</h6>
-            <input class="input" type="text"  placeholder="Nhập email" required><p>
-
             <h6>Nganh nghe:</h6>
-            <input class="input" type="text"  placeholder="Nhập nganh nghe" required><p>
+            <input class="input" type="text" name="txtnganhnghe" placeholder="Nhập nganh nghe" ><p>
 
 
             <h6>Hinh thuc lam viec:</h6>
-            <input class="input" type="text"  placeholder="Nhập hinh thuc lam viec" required><p>
+            <input class="input" type="text" name="txthinhthuc" placeholder="Nhập hinh thuc lam viec" ><p>
 
-            <h6>So nam kinh nghiem:</h6>
-            <input class="input" type="text"  placeholder="Nhập so nam kinh nghiem" required><p>
-
-            <h6>Bang cap:</h6>
+            <h6>Số năm kinh nghiệm:</h6>
             <div class="form-group">
-            <select id="inputState" class="form-control">
-                <option selected>Chon bang cap</option>
-                <option>1 nam</option>
-                <option>2 nam</option>
-                <option>3 nam</option>
-                <option>4 nam</option>
-                <option>5 nam</option>
-                <option>7 nam</option>
-                <option>10 nam</option>
+            <select id="inputState" class="form-control" name="txtkinhnghiem">
+                <option value="1">1 nam</option>
+                <option value="2">2 nam</option>
+                <option value="3">3 nam</option>
+                <option value="4">4 nam</option>
+                <option value="5">5 nam</option>
             </select>
             </div><br>
 
+            <h6>Bang cap:</h6>
+            <div class="form-group">
+            <select id="inputState" class="form-control" name="txtsonam">
+                <option selected>Chon bang cap</option>
+                <option value="Đại Học">Đại Học</option>
+                <option value="Cao Học">Cao Học</option>
+                <option value="Tiến Sĩ">Tiến Sĩ</option>
+                <option value="Giáo Sư">Giáo Sư</option>
+                <option value="Trùm Cuối">Trùm Cuối</option>
+            </select>
+            </div><br>
+
+            <h6>Tin Hoc:</h6>
+            <input class="input" type="text" name="txttinhoc" placeholder="Nhập tin học"><p>
+
             <h6>Ngoai ngu:</h6>
             <div class="form-check form-check-inline">
-                <input type="checkbox" id="Anh" name="Anh" value="NgoaiNgu">
+                <input type="checkbox" id="Anh" name="NgoaiNgu[]" value="Anh">
                 <label for="NgoaiNgu">Tieng Anh</label><br>
             </div>
             <div class="form-check form-check-inline">
-                <input type="checkbox" id="Nhat" name="Nhat" value="NgoaiNgu">
+                <input type="checkbox" id="Nhat" name="NgoaiNgu[]" value="Nhat">
                 <label for="NgoaiNgu"> Tieng Nhat</label><br>
             </div><div class="form-check form-check-inline">
-                <input type="checkbox" id="Trung" name="Trung" value="NgoaiNgu">
+                <input type="checkbox" id="Trung" name="NgoaiNgu[]" value="Trung">
                 <label for="NgoaiNgu">Tieng Trung</label><br>
             </div>
         </div>
         
     </div>
-    <button type="button" class="btn btn-primary">Hoan tat</button>
 </div>
+<--Hoa-->
+<input class="btn btn-primary" type="submit" name="taoCV"  value="Hoan Thanh"/>
+</form>
 <?php include 'inc/footer.php'; ?>
