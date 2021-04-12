@@ -1,4 +1,5 @@
 ﻿<?php include 'inc/header.php' ?>
+
 <head>
 	<link href="css/register.css" rel="stylesheet" type="text/css" media="all" />
 </head>
@@ -7,7 +8,7 @@
 	<h1>Đăng nhập</h1>
 	<div class="main-agileinfo">
 		<div class="agileits-top">
-			<form action="#" method="post">
+			<form action="processlogin.php" method="post">
 				<input class="text email" type="email" name="email" placeholder="Email" required="">
 				<input class="text" type="password" name="password" placeholder="Password" required="">
 				<div class="wthree-text">
@@ -25,29 +26,4 @@
 	</div>
 </div>
 <?php include 'inc/footer.php'; ?>
-<meta charset ="utf8">
-<?php
-	$taikhoan = $_POST['email'];
-	$matkhau = $_POST['password'];
-	//
-	$kn = mysqli_connect("localhost","root","","a") or die("Không thể kết nối");
-	mysqli_select_db($kn, "a");
-	//
-	mysqli_query($kn,"SET NAMES 'utf8'");
-	//
-	$caulenh ="SELECT * FROM taikhoan WHERE EMAIL = '".$taikhoan."'";
-	//
-	$kq = mysqli_query($kn,$caulenh);
-	//
-	if($dong = mysqli_fetch_array($kq))
-	{
-		if($dong['MATKHAU']==$matkhau)
-		{
-			header('Location: http://localhost:81/searchjobs/');
-		}
-		else
-			echo"Sai password";
-	}
-	else
-		echo"Tài khoản chưa tồn tại";
-?>
+
