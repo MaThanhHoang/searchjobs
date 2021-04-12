@@ -1,6 +1,6 @@
 <meta charset="utf8">
 <?php
-include('ketnoi.php');
+include('config/database.php');
 if (isset($_POST['taoCV'])) {
     //lấy thông tin từ các form bằng phương thức POST
     $HOVATEN = $_POST["txthovaten"]; //database tham chieu qua php
@@ -17,7 +17,7 @@ if (isset($_POST['taoCV'])) {
         exit;
     }
     //Lenh Truy van
-    $lenhsql = "INSERT INTO hosocanhan
+    $lenhsql = "INSERT INTO HOSOCANHAN
     (HOVATEN,DIACHI,NGANHNGHE,HINHTHUCLAMVIEC,SONAMKINHNGIEM,BANGCAP,TINHOC,NGOAINGU) 
     VALUES ( '".$HOVATEN."',
     '".$DIACHI."',
@@ -28,7 +28,7 @@ if (isset($_POST['taoCV'])) {
     '".$TINHOC."',
     '".$NGOAINGU."'
     )";
-    $thucthi=mysqli_query($kn,$lenhsql) or die ("Khong them duoc");
+    $thucthi=mysqli_query($conn,$lenhsql) or die ("Khong them duoc");
     if (!$thucthi) {
 		echo "Người dùng đã tồn tại vui lòng không trùng username và email !";
 	}else{
