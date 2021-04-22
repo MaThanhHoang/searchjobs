@@ -1,78 +1,107 @@
+
 <?php include 'inc/header.php'; ?>
 
 <head>
-    <link href="css/createCV.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/createCV.css" rel="stylesheet" type="text/css" media="all" />
 </head>
-|<form action="insertCV.php" method="post">
-    <div class="container">
-        <div class="form">
-            <h2>Hồ sơ cá nhân</h2>
-            <div class="group-input">
-                <h6>Họ và tên:</h6>
-                <input class="input" type="text" placeholder="Nhập họ tên" name="txthovaten">
-                <p>
+<div class="menu-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="navbar-nav ">
+            <li class="nav-item active ">
+                <a class="nav-link active navbar-brand" href="index.php">Home</a>
+            </li>
+            <li class="nav-item active " >
+                <a class="nav-link active navbar-brand" href="createJob.php">Đăng tin tuyển dụng</a>
+            </li>
+        </ul>
+    </nav>
+</div>
 
-                    <h6>Chọn địa chỉ đi bro:</h6>
-                    <div class="form-group">
-                        <select id="inputState" class="form-control" name="txtdiachi">
-                            <option value="Miền Bắc">Miền Bắc</option>
-                            <option value="Miền Trung">Miền Trung</option>
-                            <option value="Miền Nam">Miền Nam</option>
-                        </select>
-                    </div><br>
+<div class="container">
+    <div class="form">
+        <h2>Hồ sơ cá nhân</h2>
+        <div class="group-input">
+            <h6>Họ và tên:</h6>
+            <input class="input" type="text"  placeholder="Nhập họ tên" required><p>
 
-                    <h6>Nganh nghe:</h6>
-                    <input class="input" type="text" name="txtnganhnghe" placeholder="Nhập nganh nghe">
-                    <p>
+            <h6>Nhập địa chỉ:</h6>
+            <div class="form-group">
+            <textarea cols="55" rows="3" placeholder="Nhập địa chỉ" required></textarea>
+            </div><br>
 
-
-                        <h6>Hinh thuc lam viec:</h6>
-                        <input class="input" type="text" name="txthinhthuc" placeholder="Nhập hinh thuc lam viec">
-                        <p>
-
-                            <h6>Số năm kinh nghiệm:</h6>
-                            <div class="form-group">
-                                <select id="inputState" class="form-control" name="txtkinhnghiem">
-                                    <option value="1">1 nam</option>
-                                    <option value="2">2 nam</option>
-                                    <option value="3">3 nam</option>
-                                    <option value="4">4 nam</option>
-                                    <option value="5">5 nam</option>
-                                </select>
-                            </div><br>
-
-                            <h6>Bang cap:</h6>
-                            <div class="form-group">
-                                <select id="inputState" class="form-control" name="txtsonam">
-                                    <option selected>Chon bang cap</option>
-                                    <option value="Đại Học">Đại Học</option>
-                                    <option value="Cao Học">Cao Học</option>
-                                    <option value="Tiến Sĩ">Tiến Sĩ</option>
-                                    <option value="Giáo Sư">Giáo Sư</option>
-                                </select>
-                            </div><br>
-
-                            <h6>Tin Hoc:</h6>
-                            <input class="input" type="text" name="txttinhoc" placeholder="Nhập tin học">
-                            <p>
-
-                                <h6>Ngoai ngu:</h6>
-                                <div class="form-check form-check-inline">
-                                    <input type="checkbox" id="Anh" name="NgoaiNgu[]" value="Anh">
-                                    <label for="NgoaiNgu">Tieng Anh</label><br>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="checkbox" id="Nhat" name="NgoaiNgu[]" value="Nhat">
-                                    <label for="NgoaiNgu"> Tieng Nhat</label><br>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="checkbox" id="Trung" name="NgoaiNgu[]" value="Trung">
-                                    <label for="NgoaiNgu">Tieng Trung</label><br>
-                                </div>
+            <h6>Ngày sinh:</h6>
+            <div class="form-group row">
+            <div class="col-10">
+                <input class="form-control" type="date" value="2000-12-12" id="example-date-input">
             </div>
+            </div>	<br>    
+
+            <h6>Ngành nghề:</h6>
+            <input class="input" type="text"  placeholder="Nhập ngành nghề" required><p>
+
+            <h6>Điểm mạnh công việc:</h6>
+            <div class="form-group">
+            <textarea cols="55" rows="3" placeholder="Nhập điểm mạnh"></textarea>
+            </div><br>
+
+
+            <h6>Hình thức làm việc:</h6>
+            <input class="input" type="text"  placeholder="Nhập hình thức làm việc" required><p>
+
+            <h6>Số năm kinh nghiệm:</h6>
+            <div class="form-group">
+            <select id="inputState" class="form-control">
+                <option selected>Chon kinh nghiệm </option>
+                <option>Không có</option>
+                <option>1 nam</option>
+                <option>2 nam</option>
+                <option>3 nam</option>
+                <option>4 nam</option>
+                <option>5 nam</option>
+                <option>7 nam</option>
+                <option>10 nam</option>
+            </select>
+            </div><br>
+
+            <h6>Bằng cấp:</h6>
+            <div class="form-group">
+            <select id="inputState" class="form-control" require>
+                <option selected>Chọn bằng cấp</option>
+                <option>Không bằng cấp</option>
+                <option>Trung cấp</option>
+                <option>Đại học</option>
+                <option>Trên đại học</option>
+            </select>
+            </div><br>
+
+            <h6>Tin học:</h6>
+            <input class="input" type="text" ><p>
+
+            <h6>Ngoại ngữ:</h6>
+            <div class="form-check form-check-inline">
+                <input type="checkbox" id="Anh" name="Anh" value="NgoaiNgu">
+                <label for="NgoaiNgu">Tiếng Anh</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="checkbox" id="Nhat" name="Nhat" value="NgoaiNgu">
+                <label for="NgoaiNgu"> Tiếng Nhật</label><br>
+            </div><div class="form-check form-check-inline">
+                <input type="checkbox" id="Trung" name="Trung" value="NgoaiNgu">
+                <label for="NgoaiNgu">Tiếng Trung</label><br>
+            </div><br><br>
+
+            <h6>Ngôn ngữ khác:</h6>
+            <input class="input" type="text" ><p>
+
+
+            <h6>Năng khiếu:</h6>
+            <div class="form-group">
+            <textarea cols="55" rows="3" placeholder="Nhập năng khiếu"></textarea>
+            </div><br>
 
         </div>
+        
     </div>
-        <input class="btn btn-primary" type="submit" name="taoCV" value="Hoan Thanh" />
-</form>
+    <button type="button" class="btn btn-primary">Hoàn tất</button>
+</div>
 <?php include 'inc/footer.php'; ?>
