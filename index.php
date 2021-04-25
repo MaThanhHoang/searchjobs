@@ -1,3 +1,10 @@
+<?php 
+  session_start(); 
+  if(!isset($_SESSION['Login']))
+  {
+    $_SESSION['Login'] = "Đăng nhập";
+  }
+?>
 <?php include 'inc/header.php'; ?>
 
 <div id="menu_top">
@@ -10,7 +17,7 @@
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="login.php"><span>Đăng nhập</span></a>
+          <a class="nav-link active" aria-current="page" href="login.php"><span><?php echo $_SESSION['Login']?></span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="register.php" tabindex="-1" aria-disabled="true">
