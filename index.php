@@ -3,7 +3,10 @@
   if(!isset($_SESSION['Login']))
   {
     $_SESSION['Login'] = "Đăng nhập";
+    $_SESSION['Register'] = "Đăng ký";
   }
+  else 
+    $_SESSION['Register'] = "Đăng xuất";
 ?>
 <?php include 'inc/header.php'; ?>
 
@@ -20,8 +23,17 @@
           <a class="nav-link active" aria-current="page" href="login.php"><span><?php echo $_SESSION['Login']?></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="register.php" tabindex="-1" aria-disabled="true">
-            Đăng ký
+          <a class="nav-link active" tabindex="-1" aria-disabled="true"
+            <?php
+                $link;
+                if($_SESSION['Register']=="Đăng ký"){ 
+                  $link="register.php";
+                }else
+                  $link="Login.php";
+            ?>
+            href="<?php echo $link ?>";
+          >
+          <span><?php echo $_SESSION['Register']?></span>
           </a>
         </li>
       </ul>
