@@ -5,28 +5,40 @@ if (isset($_POST['taoCV'])) {
     //lấy thông tin từ các form bằng phương thức POST
     $HOVATEN = $_POST["txthovaten"]; //database tham chieu qua php
     $DIACHI =$_POST["txtdiachi"];
+    $NGAYSINH =$_POST['txtngaysinh'];
     $NGANHNGHE =$_POST["txtnganhnghe"];
+    $DIEMMANHCONGVIEC =$_POST['txtdiemmanh'];
     $HINHTHUCLAMVIEC =$_POST["txthinhthuc"];
     $SONAMKINHNGIEM=$_POST["txtkinhnghiem"];
-    $BANGCAP   =$_POST["txtsonam"];
+    $BANGCAP   =$_POST["txtbangcap"];
     $TINHOC =$_POST["txttinhoc"];
-    $NGOAINGU = implode(",",$_POST['NgoaiNgu']);
+    //$TIENGANH = implode(",",$_POST['NgoaiNgu']);
+    $TIENGANH =$_POST['txttienganh'];
+    //$TIENGNHAT =$_POST['txtnhat'];
+    $TIENGNHAT =$_POST ["txtnhats"];
+    $TIENGKHAC =$_POST['txtngonnguphu'];
+    $NANGKHIEU =$_POST['txtnangkhieu'];
     if (!$HOVATEN)
     {
         echo "Vui lòng nhập đầy đủ thông tin. <a href='javascript: history.go(-1)'>Trở lại</a>";
         exit;
     }
     //Lenh Truy van
-    $lenhsql = "INSERT INTO HOSOCANHAN
-    (HOVATEN,DIACHI,NGANHNGHE,HINHTHUCLAMVIEC,SONAMKINHNGIEM,BANGCAP,TINHOC,NGOAINGU) 
+    $lenhsql = "INSERT INTO hosocanhan
+    (HOVATEN,DIACHI,NGAYSINH,NGANHNGHE,DIEMMANHCONGVIEC,HINHTHUCLAMVIEC,SONAMKINHNGIEM,BANGCAP,TINHOC,TIENGANH,TIENGNHAT,TIENGKHAC,NANGKHIEU)
     VALUES ( '".$HOVATEN."',
     '".$DIACHI."',
+    '".$NGAYSINH."',
     '".$NGANHNGHE."',
+    '".$DIEMMANHCONGVIEC."',
     '".$HINHTHUCLAMVIEC."',
     '".$SONAMKINHNGIEM."',
     '".$BANGCAP."',
     '".$TINHOC."',
-    '".$NGOAINGU."'
+    '".$TIENGANH."',
+    '".$TIENGNHAT."',
+    '".$TIENGKHAC."',
+    '".$NANGKHIEU."'
     )";
     $thucthi=mysqli_query($conn,$lenhsql) or die ("Khong them duoc");
     if (!$thucthi) {

@@ -58,7 +58,12 @@
         <button type="button" class="btn btn-primary">Search</button>
       </div>
     </div>
-    <button type="button" class="btn btn-primary" style="margin-left: 300px ">Tạo CV</button>
+    <button type="button" class="btn btn-primary" style="margin-left: 300px " onclick="dieu_huong()">Tạo CV</button>
+    <script>
+        function dieu_huong(){
+            location.assign("createCV.php");
+        }
+    </script>
     <button type="button" class="btn btn-primary btn-second" style="background-color: #d22d65">Đăng tin tuyển dụng</button>
   </div>
   <h1> Việc làm tuyển gấp</h1>
