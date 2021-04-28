@@ -1,6 +1,9 @@
 ﻿<?php 
   session_start(); 
-  $_SESSION['Login']="";
+  if($_SESSION['Register']=="Đăng xuất" && $_SESSION['Login']!="Đăng nhập"){
+  	unset($_SESSION['Login']);
+  }else	
+  	$_SESSION['Login']="";
 ?>
 <?php include 'inc/header.php' ?>
 
