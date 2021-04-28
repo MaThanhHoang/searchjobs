@@ -3,10 +3,13 @@
   if(!isset($_SESSION['Login']))
   {
     $_SESSION['Login'] = "Đăng nhập";
+  }
+  if($_SESSION['Login']=="Đăng nhập"){
     $_SESSION['Register'] = "Đăng ký";
   }
-  else 
+  if($_SESSION['Login']!="Đăng nhập"){
     $_SESSION['Register'] = "Đăng xuất";
+  }
 ?>
 <?php include 'inc/header.php'; ?>
 
