@@ -1,18 +1,12 @@
 <?php 
   session_start(); 
-  if(!isset($_SESSION['Login']))
-  {
-    $_SESSION['Login'] = "Đăng nhập";
-  }
-  if($_SESSION['Login']=="Đăng nhập"){
-    $_SESSION['Register'] = "Đăng ký";
-  }
-  if($_SESSION['Login']!="Đăng nhập"){
-    $_SESSION['Register'] = "Đăng xuất";
-  }
 ?>
 <?php include 'inc/header.php'; ?>
-
+<head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    </head>
 <div id="menu_top">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class=" navbar-collapse">
@@ -23,20 +17,23 @@
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="login.php"><span><?php echo $_SESSION['Login']?></span></a>
+          <a class="nav-link active" aria-current="page" href="login.php"><span><?php 
+            if(isset($_SESSION['Login'])){
+              echo $_SESSION['Login'];
+            }
+            else
+            echo "Đăng nhập";
+        ?></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" tabindex="-1" aria-disabled="true"
-            <?php
-                $link;
-                if($_SESSION['Register']=="Đăng ký"){ 
-                  $link="register.php";
-                }else
-                  $link="Login.php";
-            ?>
-            href="<?php echo $link ?>";
-          >
-          <span><?php echo $_SESSION['Register']?></span>
+        <a class="nav-link active" href="register.php"  tabindex="-1" aria-disabled="true">
+        <span><?php 
+            if(isset($_SESSION['Logout'])){
+              echo $_SESSION['Logout'] = "Đăng Xuất";
+            }
+            else
+            echo "Đăng ký";
+        ?></span>
           </a>
         </li>
       </ul>
@@ -61,16 +58,21 @@
         <button type="button" class="btn btn-primary">Search</button>
       </div>
     </div>
-    <button type="button" class="btn btn-primary" style="margin-left: 300px " onclick="dieu_huong()">Tạo CV</button>
+    
+    <button type="button" id="abc" name="taoCV" class="btn btn-primary"  onclick=" dieu_huong()" style="margin-left: 300px " >Tạo CV</button>
     <script>
         function dieu_huong(){
             location.assign("createCV.php");
+            alert ("Kiểm tra đăng nhập, nếu đã đăng nhập có thể bỏ qua thông báo");
+           
         }
-    </script>
+    </script>   
     <button type="button" class="btn btn-primary btn-second" style="background-color: #d22d65">Đăng tin tuyển dụng</button>
   </div>
   <h1> Việc làm tuyển gấp</h1>
-  
+   
+
+
   <form></form>
 
   <?php include 'inc/footer.php'; ?>

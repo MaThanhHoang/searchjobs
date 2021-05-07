@@ -1,5 +1,12 @@
-
 <?php include 'inc/header.php'; ?>
+<?php session_start(); ?>
+<?php 
+	if(isset($_SESSION['Login'])){
+            $user = $_SESSION['Login'];
+        }
+        else
+            header('location:index.php');
+ ?>
 
 <head>
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
@@ -11,7 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="navbar-nav ">
             <li class="nav-item active ">
-                <a class="nav-link active navbar-brand" href="index.php">Home</a>
+                <a class="nav-link active navbar-brand" href="index.php#">Home</a>
             </li>
             <li class="nav-item active " >
                 <a class="nav-link active navbar-brand" href="createJob.php">Đăng tin tuyển dụng</a>
