@@ -1,9 +1,7 @@
-﻿<?php 
-  session_start(); 
-  if($_SESSION['Register']=="Đăng xuất" && $_SESSION['Login']!="Đăng nhập"){
+﻿﻿<?php 
+  session_start(); 	
   	unset($_SESSION['Login']);
-  }else	
-  	$_SESSION['Login']="";
+	$_SESSION['Logout']="";
 ?>
 <?php include 'inc/header.php' ?>
 
@@ -29,19 +27,23 @@
 				<input type="submit" value="ĐĂNG NHẬP">
 				<?php include 'config/database.php'?>
 <?php
-	$_SESSION['Login'] = @$_POST['email'];
+	
+	$taikhoan = @$_POST['email'];
 	$matkhau = @$_POST['password'];
 	//
-	$caulenh ="SELECT * FROM TAIKHOAN WHERE EMAIL = '".$_SESSION['Login']."'";
+	$caulenh ="SELECT * FROM TAIKHOAN WHERE EMAIL = '".$taikhoan."'";
 	//
 	$kq = mysqli_query($conn,$caulenh);
+	$dong = mysqli_fetch_array($kq);
 	//
-	if(isset($_SESSION['Login']) && isset($matkhau))
+	if(isset($taikhoan) && isset($matkhau))
 	{
-		if($dong = mysqli_fetch_array($kq))
+		if($taikhoan == $dong['EMAIL'])
 		{
 			if($dong['MATKHAU']==$matkhau)
 			{
+				$_SESSION['Login'] = $taikhoan;
+				$_SESSION['Logout'];
 				header('Location: ./index.php');
 			}
 			else
@@ -57,5 +59,4 @@
 	</div>
 </div>
 <?php include 'inc/footer.php'; ?>
-
 

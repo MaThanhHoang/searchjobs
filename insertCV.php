@@ -1,4 +1,5 @@
 <meta charset="utf8">
+<?php session_start() ?>
 <?php
 include('config/database.php');
 if (isset($_POST['taoCV'])) {

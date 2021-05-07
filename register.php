@@ -1,8 +1,20 @@
 <?php include 'inc/header.php'; ?>
+<?php session_start(); 
+    
+ ?>
 <head>
 	<link href="css/register.css" rel="stylesheet" type="text/css" media="all" />
 </head>
-
+<div class="menu-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="navbar-nav ">
+            <li class="nav-item active ">
+                <a class="nav-link active navbar-brand" href="index.php">Home</a>
+				<?php session_destroy(); ?>
+            </li>
+        </ul>
+    </nav>
+</div>
 <div class="main-w3layouts wrapper">
 	<h1>Đăng kí tài khoản</h1>
 	<div class="main-agileinfo">
