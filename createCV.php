@@ -23,6 +23,9 @@
             <li class="nav-item active " >
                 <a class="nav-link active navbar-brand" href="createJob.php">Đăng tin tuyển dụng</a>
             </li>
+            <li class="nav-item active ">
+                <a class="nav-link active navbar-brand" href="phantrang.php">Lịch sử hồ sơ</a>
+            </li>
         </ul>
     </nav>
 </div>
@@ -42,7 +45,7 @@
             <h6>Ngày sinh:</h6>
             <div class="form-group row">
             <div class="col-10">
-                <input class="form-control" type="datetime-local" name="txtngaysinh" type="date">
+                <input class="form-control" name="txtngaysinh" type="date">
             </div>
             </div>	<br>    
 
@@ -61,7 +64,6 @@
             <h6>Số năm kinh nghiệm:</h6>
             <div class="form-group">
             <select id="inputState" name="txtkinhnghiem" class="form-control">
-                <option selected>Chon kinh nghiệm </option>
                 <option value="Null">Không có</option>
                 <option value="1">1 nam</option>
                 <option value="2">2 nam</option>
@@ -73,7 +75,6 @@
             <h6>Bằng cấp:</h6>
             <div class="form-group">
             <select id="inputState" name="txtbangcap" class="form-control" require>
-                <option selected>Chọn bằng cấp</option>
                 <option value="null">Không bằng cấp</option>
                 <option value="Trung Cap">Trung cấp</option>
                 <option value="Đại Học">Đại học</option>
