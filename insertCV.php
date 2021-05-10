@@ -45,7 +45,7 @@ if (isset($_POST['taoCV'])) {
     if (!$thucthi) {
 		echo "Người dùng đã tồn tại vui lòng không trùng username và email !";
 	}else{
-        echo "Ban da them thong tin thanh cong. <a href='javascript: history.go(-2)'>Trở lại</a>";
+        echo "Ban da them thong tin thanh cong. <a href='javascript: history.go(-3)'>Trở lại</a>";
 		
 	}
 }

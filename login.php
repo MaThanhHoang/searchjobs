@@ -8,6 +8,16 @@
 <head>
 	<link href="css/register.css" rel="stylesheet" type="text/css" media="all" />
 </head>
+<div class="menu-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="navbar-nav ">
+            <li class="nav-item active ">
+                <a class="nav-link active navbar-brand" href="index.php">Home</a>
+				
+            </li>
+        </ul>
+    </nav>
+</div>
 
 <div class="main-w3layouts wrapper">
 	<h1>Đăng nhập</h1>
