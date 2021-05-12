@@ -68,7 +68,7 @@ include 'config/database.php';
     <script>
         function dieu_huong(){
             location.assign("createCV.php");
-            alert ("Kiểm tra đăng nhập, nếu đã đăng nhập có thể bỏ qua thông báo");
+
            
         }
     </script>   
@@ -179,7 +179,7 @@ include 'config/database.php';
     
         <th class="ngaydang">' . $row['BANGCAP'] . '</th>
 		<th class="chedodaingo">' . $row['TINHOC'] . '</th>
-		<th class="motacongviec">' . $row['TIENGANH'] . ',' . $row['TIENGNHAT'] . '' . $row['TIENGKHAC'] . '</th>
+		<th class="motacongviec">' . $row['TIENGANH'] . ',' . $row['TIENGKHAC'] . '</th>
     <th class="chedodaingo">' . $row['NANGKHIEU'] . '</th>
     </tr>
             
