@@ -16,7 +16,7 @@ if (isset($_POST['taoCV'])) {
     //$TIENGANH = implode(",",$_POST['NgoaiNgu']);
     $TIENGANH =$_POST['txttienganh'];
     //$TIENGNHAT =$_POST['txtnhat'];
-    $TIENGNHAT =$_POST ["txtnhats"];
+    // $TIENGNHAT =$_POST ["txtnhats"];
     $TIENGKHAC =$_POST['txtngonnguphu'];
     $NANGKHIEU =$_POST['txtnangkhieu'];
     if (!$HOVATEN)
@@ -26,7 +26,7 @@ if (isset($_POST['taoCV'])) {
     }
     //Lenh Truy van
     $lenhsql = "INSERT INTO hosocanhan
-    (HOVATEN,DIACHI,NGAYSINH,NGANHNGHE,DIEMMANHCONGVIEC,HINHTHUCLAMVIEC,SONAMKINHNGIEM,BANGCAP,TINHOC,TIENGANH,TIENGNHAT,TIENGKHAC,NANGKHIEU)
+    (HOVATEN,DIACHI,NGAYSINH,NGANHNGHE,DIEMMANHCONGVIEC,HINHTHUCLAMVIEC,SONAMKINHNGIEM,BANGCAP,TINHOC,TIENGANH,TIENGKHAC,NANGKHIEU)
     VALUES ( '".$HOVATEN."',
     '".$DIACHI."',
     '".$NGAYSINH."',
@@ -37,7 +37,6 @@ if (isset($_POST['taoCV'])) {
     '".$BANGCAP."',
     '".$TINHOC."',
     '".$TIENGANH."',
-    '".$TIENGNHAT."',
     '".$TIENGKHAC."',
     '".$NANGKHIEU."'
     )";
@@ -45,7 +44,7 @@ if (isset($_POST['taoCV'])) {
     if (!$thucthi) {
 		echo "Người dùng đã tồn tại vui lòng không trùng username và email !";
 	}else{
-        echo "Ban da them thong tin thanh cong. <a href='javascript: history.go(-3)'>Trở lại</a>";
+        echo "Ban da them thong tin thanh cong. <a href='javascript: history.go(-1)'>Trở lại</a>";
 		
 	}
 }

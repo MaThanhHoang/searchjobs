@@ -15,7 +15,7 @@ include 'config/database.php';
     <div class=" navbar-collapse">
       <ul class="navbar-nav ">
         <li class="nav-item active ">
-          <a class="nav-link active navbar-brand" href="index.html">Home</a>
+          <a class="nav-link active navbar-brand" href="index.php">Home</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

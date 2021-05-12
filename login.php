@@ -41,7 +41,7 @@
 	$taikhoan = @$_POST['email'];
 	$matkhau = @$_POST['password'];
 	//
-	$caulenh ="SELECT * FROM TAIKHOAN WHERE EMAIL = '".$taikhoan."'";
+	$caulenh ="SELECT * FROM taikhoan WHERE EMAIL = '".$taikhoan."'";
 	//
 	$kq = mysqli_query($conn,$caulenh);
 	$dong = mysqli_fetch_array($kq);
