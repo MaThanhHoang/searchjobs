@@ -291,7 +291,7 @@ include 'config/database.php';
                      
                          <th class="ngaydang">' . $row['BANGCAP'] . '</th>
                      <th class="chedodaingo">' . $row['TINHOC'] . '</th>
-                     <th class="motacongviec">' . $row['TIENGANH'] . ',' . $row['TIENGNHAT'] . '' . $row['TIENGKHAC'] . '</th>
+                     <th class="motacongviec">' . $row['TIENGANH'] . ',' . $row['TIENGKHAC'] . '</th>
                      <th class="chedodaingo">' . $row['NANGKHIEU'] . '</th>
                      </tr>
                              
