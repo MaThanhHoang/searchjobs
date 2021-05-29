@@ -39,7 +39,7 @@
             <h6>Mức lương:</h6>
             <div class="form-group">
             <select id="inputState" name="txtLuong" class="form-control">
-                <option selected>Chọn mức lương...</option>
+              
                 <option>1 - 3 trieu</option>
                 <option>3 - 5 trieu</option>
                 <option>5 - 7 trieu</option>
@@ -53,10 +53,10 @@
             <h6>Khu vực:</h6>
             <div class="form-group">
             <select id="inputState" name="txtKhuvuc" class="form-control">
-                <option selected>Chọn khu vực...</option>
-                <option>Miền bắc</option>
-                <option>Miền trung</option>
-                <option>Miền nam</option>
+               
+                <option>Miền Bắc</option>
+                <option>Miền Trung</option>
+                <option>Miền Nam</option>
             </select>
             </div><br>
 
@@ -79,7 +79,8 @@
             <h6>Ngày đăng:</h6>
             <div class="form-group row">
             <div class="col-10">
-            <input class="form-control" type="datetime-local" name="txtNgaydang" type="date">
+            <input class="form-control" name="txtNgaydang" type="date" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}">
+
             </div>
             </div>  <br>  
         </div>
@@ -107,6 +108,7 @@
         $DAINGO = $_POST["txtDaingo"];
         $NGAYDANG = $_POST["txtNgaydang"];
 
+
         $query = mysqli_query($conn, "select COUNT(*) FROM `congviec` ");
                  
         if ($row = mysqli_fetch_assoc($query)) {
@@ -123,16 +125,26 @@
             }
         }
     
-        $addsql = mysqli_query($conn,"  INSERT INTO `CONGVIEC`(`IDVIECLAM`, `IDCONGTY`, `TENCONGTY`, `LUONG`, `VUNGMIEN`, `CHEDODAINGO`, `NGAYDANG`, `YEUCAUCONGVIEC`, `MOTACONGVIEC`, `DIACHI`) VALUES ('".$IDVIEC."','".$IDCTY."','".$TENCONGTY."', '".$LUONG."', '".$KHUVUC."', '".$DAINGO."', '".$NGAYDANG."', '".$YEUCAU."', '".$MOTA."', '".$DIACHI."');
-        ");
+        $addsql = "INSERT INTO `CONGVIEC`(`IDVIECLAM`, `IDCONGTY`, `TENCONGTY`, `LUONG`, `VUNGMIEN`, `CHEDODAINGO`, `NGAYDANG`, `YEUCAUCONGVIEC`, `MOTACONGVIEC`, `DIACHI`) VALUES ('".$IDVIEC."','".$IDCTY."','".$TENCONGTY."', '".$LUONG."', '".$KHUVUC."', '".$DAINGO."', '".$NGAYDANG."', '".$YEUCAU."', '".$MOTA."', '".$DIACHI."')";
+    
 
-        $xuly = mysqli_query($conn,$addsql) or die ("Không thêm được!");
-        if (!$xuly) {
-            echo "Công việc đã tồn tại!";
-        }
-        else {
-            echo "Công việc đã được thêm!<a href='javascript: history.go(-2)'>Trở lại</a>";
-        }
+ 
+    $thucthi=mysqli_query($conn,$addsql ) or die ("Khong them duoc");
+    if (!$thucthi) {
+		echo "Không thêm được !";
+	}else{
+     echo " <h3><a href='index.php'>Ban da them thong tin thanh cong.</a></h3>";
+		
+	}
+
+
+
+	
+
+
+
+
+    
     }  
 ?>
 <?php include 'inc/footer.php'; ?>

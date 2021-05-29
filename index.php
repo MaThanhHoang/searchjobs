@@ -179,7 +179,7 @@ include 'config/database.php';
     
         <th class="ngaydang">' . $row['BANGCAP'] . '</th>
 		<th class="chedodaingo">' . $row['TINHOC'] . '</th>
-		<th class="motacongviec">' . $row['TIENGANH'] . ',' . $row['TIENGKHAC'] . '</th>
+		       <th class="motacongviec">' . $row['TIENGANH'] . ' ' . $row['TIENGNHAT'] . ' ' . $row['TIENGKHAC'] . '</th>
     <th class="chedodaingo">' . $row['NANGKHIEU'] . '</th>
     </tr>
             
@@ -291,7 +291,7 @@ include 'config/database.php';
                      
                          <th class="ngaydang">' . $row['BANGCAP'] . '</th>
                      <th class="chedodaingo">' . $row['TINHOC'] . '</th>
-                     <th class="motacongviec">' . $row['TIENGANH'] . ',' . $row['TIENGKHAC'] . '</th>
+                          <th class="motacongviec">' . $row['TIENGANH'] . ' ' . $row['TIENGNHAT'] . ' ' . $row['TIENGKHAC'] . '</th>
                      <th class="chedodaingo">' . $row['NANGKHIEU'] . '</th>
                      </tr>
                              
@@ -318,7 +318,7 @@ $query = mysqli_query($conn, 'SELECT *, COUNT(*) FROM `congviec` WHERE `TENCONGT
                  }
             
                  if ($sl > 0) {
-                     echo $sl."số lượng đay mọi người ơi";
+                     echo $sl." CV";
                      $query = mysqli_query($conn, 'SELECT * FROM `congviec` WHERE `TENCONGTY` LIKE "%' . @$_POST['timkiemtheotext'] . '%" OR `YEUCAUCONGVIEC` LIKE "%' . @$_POST['timkiemtheotext'] . '%"OR `DIACHI` LIKE "%' . @$_POST['timkiemtheotext'] . '%"OR `VUNGMIEN` LIKE "%' . @$_POST['timkiemtheotext'] . '%"OR `MOTACONGVIEC` LIKE "%' . @$_POST['timkiemtheotext'] . '%"OR `NGAYDANG` LIKE "%' . @$_POST['timkiemtheotext'] . '%"OR `CHEDODAINGO` LIKE "%' . @$_POST['timkiemtheotext'] . '%"');
                      echo '
 	<table style="width:100%; height:150px; color:white; font-size:15px;color:black;   >   ">
@@ -396,7 +396,7 @@ $query = mysqli_query($conn, 'SELECT *, COUNT(*) FROM `congviec` WHERE `TENCONGT
                      <th>Bằng cấp</th>
                      <th>Tin học</th>
                  
-                             <th>Ngoại ngữ1</th>
+                             <th>Ngoại ngữ</th>
                              <th>Năng khiếu</th>
                      
                      </tr>';
@@ -414,7 +414,7 @@ $query = mysqli_query($conn, 'SELECT *, COUNT(*) FROM `congviec` WHERE `TENCONGT
                      
                          <th class="ngaydang">' . $row['BANGCAP'] . '</th>
                      <th class="chedodaingo">' . $row['TINHOC'] . '</th>
-                     <th class="motacongviec">' . $row['TIENGANH'] . ',' . $row['TIENGNHAT'] . '' . $row['TIENGKHAC'] . '</th>
+                     <th class="motacongviec">' . $row['TIENGANH'] . ' ' . $row['TIENGNHAT'] . ' ' . $row['TIENGKHAC'] . '</th>
                      <th class="chedodaingo">' . $row['NANGKHIEU'] . '</th>
                      </tr>
                              

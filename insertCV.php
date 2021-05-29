@@ -16,7 +16,8 @@ if (isset($_POST['taoCV'])) {
     //$TIENGANH = implode(",",$_POST['NgoaiNgu']);
     $TIENGANH =$_POST['txttienganh'];
     //$TIENGNHAT =$_POST['txtnhat'];
-    // $TIENGNHAT =$_POST ["txtnhats"];
+     $TIENGNHAT =$_POST ["txtnhats"];
+     $TIENGKHAC1 =$_POST ["NgoaiNgu"];
     $TIENGKHAC =$_POST['txtngonnguphu'];
     $NANGKHIEU =$_POST['txtnangkhieu'];
     if (!$HOVATEN)
@@ -24,9 +25,10 @@ if (isset($_POST['taoCV'])) {
         echo "Vui lòng nhập đầy đủ thông tin. <a href='javascript: history.go(-1)'>Trở lại</a>";
         exit;
     }
+$TIENGCHUNG = $TIENGKHAC." ". $TIENGKHAC1;
     //Lenh Truy van
     $lenhsql = "INSERT INTO hosocanhan
-    (HOVATEN,DIACHI,NGAYSINH,NGANHNGHE,DIEMMANHCONGVIEC,HINHTHUCLAMVIEC,SONAMKINHNGIEM,BANGCAP,TINHOC,TIENGANH,TIENGKHAC,NANGKHIEU)
+    (HOVATEN,DIACHI,NGAYSINH,NGANHNGHE,DIEMMANHCONGVIEC,HINHTHUCLAMVIEC,SONAMKINHNGIEM,BANGCAP,TINHOC,TIENGANH,TIENGNHAT,TIENGKHAC,NANGKHIEU)
     VALUES ( '".$HOVATEN."',
     '".$DIACHI."',
     '".$NGAYSINH."',
@@ -37,14 +39,15 @@ if (isset($_POST['taoCV'])) {
     '".$BANGCAP."',
     '".$TINHOC."',
     '".$TIENGANH."',
-    '".$TIENGKHAC."',
+ '".$TIENGNHAT."',
+    '".$TIENGCHUNG ."',
     '".$NANGKHIEU."'
     )";
     $thucthi=mysqli_query($conn,$lenhsql) or die ("Khong them duoc");
     if (!$thucthi) {
 		echo "Người dùng đã tồn tại vui lòng không trùng username và email !";
 	}else{
-        echo "Ban da them thong tin thanh cong. <a href='javascript: history.go(-2)'>Trở lại</a>";
+        echo " <h3><a href='index.php'>Ban da them thong tin thanh cong.</a></h3>";
 		
 	}
 }

@@ -39,7 +39,13 @@
 
             <h6>Nhập địa chỉ:</h6>
             <div class="form-group">
-            <input class="input" type="text" name="txtdiachi" placeholder="Nhập địa chỉ" ></input>
+          
+        <select name="txtdiachi">
+          <option value="Miền Bắc" selected="selected">Miền Bắc</option>
+          <option value="Miền Trung">Miền Trung</option>
+          <option value="Miền Nam">Miền Nam</option>
+         
+        </select>
             </div><br>
 
             <h6>Ngày sinh:</h6>
@@ -87,14 +93,14 @@
 
             <h6>Ngoại ngữ:</h6>
             <div class="form-check form-check-inline">
-                <input type="checkbox" id="Anh" name="txttienganh" value="Tieng ANh">
+                <input type="checkbox" id="Anh" name="txttienganh" value="Tiếng Anh">
                 <label for="NgoaiNgu">Tiếng Anh</label><br>
             </div>
             <div class="form-check form-check-inline">
-                <input type="checkbox" id="Nhat" name="txtnhats" value="Tieng Nhat">
+                <input type="checkbox" id="Nhat" name="txtnhats" value="Tiếng Nhật">
                 <label for="NgoaiNgu"> Tiếng Nhật</label><br>
             </div><div class="form-check form-check-inline">
-                <input type="checkbox" id="Trung" name="NgoaiNgu[]" value="Tieng Trung">
+                <input type="checkbox" id="Trung" name="NgoaiNgu" value="Tiếng Trung">
                 <label for="NgoaiNgu">Tiếng Trung</label><br>
             </div><br><br>
 

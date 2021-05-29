@@ -54,7 +54,8 @@ echo "<tr> <td>".$stt."</td> <td> ".$dong['HOVATEN']."</td> <td>".$dong['DIACHI'
 <td>".$dong['SONAMKINHNGIEM']."</td>
 <td>".$dong['BANGCAP']."</td>
 <td>".$dong['TINHOC']."</td>
-<td>".$dong['TIENGANH']."</td>s
+<td>".$dong['TIENGANH']."</td>
+<td>".$dong['TIENGNHAT']."</td>
 <td>".$dong['TIENGKHAC']."</td>
 <td>".$dong['NANGKHIEU']."</td>
 </tr>";
