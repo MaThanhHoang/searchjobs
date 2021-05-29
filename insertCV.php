@@ -12,14 +12,14 @@ if (isset($_POST['taoCV'])) {
     $HINHTHUCLAMVIEC =$_POST["txthinhthuc"];
     $SONAMKINHNGIEM=$_POST["txtkinhnghiem"];
     $BANGCAP   =$_POST["txtbangcap"];
-    $TINHOC =$_POST["txttinhoc"];
+    $TINHOC =@$_POST["txttinhoc"];
     //$TIENGANH = implode(",",$_POST['NgoaiNgu']);
-    $TIENGANH =$_POST['txttienganh'];
-    //$TIENGNHAT =$_POST['txtnhat'];
-     $TIENGNHAT =$_POST ["txtnhats"];
-     $TIENGKHAC1 =$_POST ["NgoaiNgu"];
-    $TIENGKHAC =$_POST['txtngonnguphu'];
-    $NANGKHIEU =$_POST['txtnangkhieu'];
+    $TIENGANH =@$_POST['txttienganh'];
+    //$TIENGNHAT =@$_POST['txtnhat'];
+     $TIENGNHAT =@$_POST ["txtnhats"];
+     $TIENGKHAC1 =@$_POST ["NgoaiNgu"];
+    $TIENGKHAC =@$_POST['txtngonnguphu'];
+    $NANGKHIEU =@$_POST['txtnangkhieu'];
     if (!$HOVATEN)
     {
         echo "Vui lòng nhập đầy đủ thông tin. <a href='javascript: history.go(-1)'>Trở lại</a>";
